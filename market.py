@@ -5,14 +5,14 @@ import tkinter as tk
 class Window():
     def opener():
         Window.root = Tk()
-        Window.root.geometry('550x800')
+        Window.root.geometry('510x800')
         Window.root.title('Market')
         Window.root.resizable(False, False)
 
         Window.main_frame = Frame(Window.root, bg='blue')
         Window.main_frame.pack(expand=True, fill=BOTH)
 
-        Window.my_canvas = Canvas(Window.main_frame, width=550, height=800, bg='white')
+        Window.my_canvas = Canvas(Window.main_frame, width=510, height=800, bg='white')
         Window.my_canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
         Window.secondFrame = Frame(Window.my_canvas)
@@ -25,7 +25,7 @@ class Window():
         Window.my_canvas.create_text(50, 20, fill='black', font='Arial', text='Item Name')
         Window.my_canvas.create_text(75, 65, fill='black', font='Arial 15', text='Item Description')
         price = Button(Window.my_canvas, text='Price1', command=None, borderwidth=0)
-        price.pack(padx=35, pady=25, anchor=E)
+        price.place(x=420, y=25)
         
         Window.my_canvas.create_rectangle(10, 250, 500, 125, fill='grey')
         Window.my_canvas.create_text(50, 135, fill='black', font='Arial', text='Item Name')
