@@ -1,7 +1,20 @@
+from logging import root
+import sys
+import os
+path = '//Users//projose239//Documents//GitHub//Capstone-Proj//market.py'
+sys.path.append(path)
 import tkinter
 from tkinter import*
+import market
+
+tkWindow =Tk()
+#tkWindow.geometry('550x800')
+tkWindow.geometry('1045x1920')
+tkWindow.title('Mini Apes')
 
 class Functions:
+    
+
     def inventoryWindow():
         #This is the right way so that the window doesnt appear when first opening the program
     
@@ -28,14 +41,16 @@ class Functions:
         statCount +=1
 
     def marketWindow():
-
         global markCount
-
+        
         if markCount < 2:
-            marketBlock= Toplevel()
-            marketBlock.geometry("1069x900")
-            marketlabel = Label(marketBlock, text= "Market Window").pack()
-            marketButton = Button(marketBlock, text= "Close Window", command=marketBlock.destroy).pack()
+            market.Window.opener()
+            market.Main()
+            #exec(open('market.py').read(market.Window.opener))
+            #marketBlock= Toplevel()
+            #marketBlock.geometry("1069x900")
+            #marketlabel = Label(marketBlock, text= "Market Window").pack()
+            #marketButton = Button(marketBlock, text= "Close Window", command=marketBlock.destroy).pack()
     
         markCount +=1
 
@@ -50,10 +65,6 @@ class Functions:
             settingButton = Button(settingBlock, text= "Close Window", command=settingBlock.destroy).pack()
 
         settCount +=1
-
-tkWindow =Tk()
-tkWindow.geometry('1045x1920')
-tkWindow.title('Mini Apes')
 
 class Variables:
     global invCount
@@ -70,6 +81,10 @@ class Images:
     background = PhotoImage(file="//Users/projose239//Documents//Senior Capstone//background_art.png")
     label = Label(tkWindow, image=background)
     label.place(x=0, y=0)
+
+    filip = PhotoImage(file="//Users//projose239//Documents//GitHub//Capstone-Proj//artwork-fillip//mini_apetransparent_png.png")
+    labelfil = Label(tkWindow, image=filip)
+    labelfil.place(x=210 , y=100)
 
     inv_button = PhotoImage(file= "//Users//projose239//Documents//Senior Capstone//Buttons//inventory.png")
     inv_label = Label(image=inv_button)
@@ -108,5 +123,4 @@ def exitProgram(exitBtn):
     
 exitBtn = Button(text="Exit", command=tkWindow.destroy)
 exitBtn.place(x=10, y= 100)
-
 tkWindow.mainloop()
